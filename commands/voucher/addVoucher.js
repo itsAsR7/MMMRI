@@ -40,6 +40,9 @@ module.exports = {
                         }
                     ]
                 })
+                const embed = new EmbedBuilder()
+                .setColor("Blue")
+                .setDescription(`Voucher added for ${userTag} \n Congrats on your first voucher`)
             } else {
                 const user = data.UserID;
                 const username = data.Username;
@@ -50,11 +53,12 @@ module.exports = {
                 data.Vouchers.push(newVoucher);
                 data.save()
                 }
+                const embed = new EmbedBuilder()
+                .setColor("Blue")
+                .setDescription(`Voucher added for ${userTag} \n User now has: ${data.Vouchers.length} vouchers ${scaredEmotes[Math.floor(Math.random()*scaredEmotes.length)]}`)
             })
 
-            const embed = new EmbedBuilder()
-            .setColor("Blue")
-            .setDescription(`Voucher added for ${userTag} \n User now has: ${data.Vouchers.length} vouchers ${scaredEmotes[Math.floor(Math.random()*scaredEmotes.length)]}`)
+            
             const member = interaction.options.getMember('user');
             return interaction.reply({ embeds: [embed] });
     }
