@@ -24,7 +24,6 @@ module.exports = {
         const userTag = `${target.username}#${target.discriminator}`
         
         vouchersModel.findOne({ UserId: targetId }, async (err, data) => {
-            let embed = ''
             if (err) throw err
 
             console.log(targetId)
@@ -41,7 +40,7 @@ module.exports = {
                         }
                     ]
                 })
-                embed = new EmbedBuilder()
+                const embed1 = new EmbedBuilder()
                 .setColor("Blue")
                 .setDescription(`Voucher added for ${userTag} \n Congrats on your first voucher`)
                 
@@ -55,16 +54,19 @@ module.exports = {
                 }
                 data.Vouchers.push(newVoucher);
                 data.save()
-                embed = new EmbedBuilder()
+                const embed2 = new EmbedBuilder()
                 .setColor("Blue")
                 .setDescription(`Voucher added for ${userTag} \n User now has: ${data.Vouchers.length} vouchers ${scaredEmotes[Math.floor(Math.random()*scaredEmotes.length)]}`)
                 }
                 
             })
 
-            return interaction.reply({ embeds: [embed] });
+            if(embed1){
+                return interaction.reply({ embeds: [embed1] });
+            } else {
+                return interaction.reply({ embeds: [embed2] });
+            }
             
-            const member = interaction.options.getMember('user');
             
     }
 }
