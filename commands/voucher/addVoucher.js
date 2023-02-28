@@ -43,7 +43,7 @@ module.exports = {
                 const embed1 = new EmbedBuilder()
                 .setColor("Blue")
                 .setDescription(`Voucher added for ${userTag} \n Congrats on your first voucher`)
-                
+                return interaction.reply({ embeds: [embed2] });
 
             } else {
                 const user = data.UserID;
@@ -58,14 +58,8 @@ module.exports = {
                 .setColor("Blue")
                 .setDescription(`Voucher added for ${userTag} \n User now has: ${data.Vouchers.length} vouchers ${scaredEmotes[Math.floor(Math.random()*scaredEmotes.length)]}`)
                 }
-                
-            })
-
-            if(embed1){
                 return interaction.reply({ embeds: [embed1] });
-            } else {
-                return interaction.reply({ embeds: [embed2] });
-            }
+            })
             
             
     }
