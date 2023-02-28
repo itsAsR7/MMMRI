@@ -24,7 +24,7 @@ module.exports = {
         const userTag = `${target.username}#${target.discriminator}`
         
         vouchersModel.findOne({ UserId: targetId }, async (err, data) => {
-            const embed = ''
+            let embed = ''
             if (err) throw err
 
             
