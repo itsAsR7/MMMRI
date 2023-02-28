@@ -57,7 +57,7 @@ module.exports = {
                 data.save()
                 embed = new EmbedBuilder()
                 .setColor("Blue")
-                .setDescription(`Voucher added for ${userTag} \n User now has: ${data.Vouchers.length} vouchers ${scaredEmotes[Math.floor(Math.random()*scaredEmotes.length)]}`)z
+                .setDescription(`Voucher added for ${userTag} \n User now has: ${data.Vouchers.length} vouchers ${scaredEmotes[Math.floor(Math.random()*scaredEmotes.length)]}`)
                 }
                 
             })
