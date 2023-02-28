@@ -13,6 +13,7 @@ module.exports = {
         console.log(interaction.options.user)
         
         const { options, guildId, user } = interaction;
+        const scaredEmotes = [ ':scream_cat:', ':julian3:', ':ummm:', ':bandmanalm:', ':awokege:', ':fucksoru:', ':NOWAY:' ]
         
         const target = options.getUser('user');
         console.log(target)
@@ -53,7 +54,7 @@ module.exports = {
 
             const embed = new EmbedBuilder()
             .setColor("Blue")
-            .setDescription(`Voucher added for :${userTag}`)
+            .setDescription(`Voucher added for ${userTag} \n User now has: ${data.Vouchers.length} vouchers ${scaredEmotes[Math.floor(Math.random()*scaredEmotes.length)]}`)
             const member = interaction.options.getMember('user');
             return interaction.reply({ embeds: [embed] });
     }
