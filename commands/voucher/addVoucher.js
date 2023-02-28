@@ -27,7 +27,6 @@ module.exports = {
             let embed = ''
             if (err) throw err
 
-            
             console.log(targetId)
             if (!data) {
                 console.log(targetId)
@@ -45,6 +44,8 @@ module.exports = {
                 embed = new EmbedBuilder()
                 .setColor("Blue")
                 .setDescription(`Voucher added for ${userTag} \n Congrats on your first voucher`)
+                
+
             } else {
                 const user = data.UserID;
                 const username = data.Username;
@@ -54,14 +55,16 @@ module.exports = {
                 }
                 data.Vouchers.push(newVoucher);
                 data.save()
-                }
                 embed = new EmbedBuilder()
                 .setColor("Blue")
-                .setDescription(`Voucher added for ${userTag} \n User now has: ${data.Vouchers.length} vouchers ${scaredEmotes[Math.floor(Math.random()*scaredEmotes.length)]}`)
+                .setDescription(`Voucher added for ${userTag} \n User now has: ${data.Vouchers.length} vouchers ${scaredEmotes[Math.floor(Math.random()*scaredEmotes.length)]}`)z
+                }
+                
             })
 
+            return interaction.reply({ embeds: [embed] });
             
             const member = interaction.options.getMember('user');
-            return interaction.reply({ embeds: [embed] });
+            
     }
 }
