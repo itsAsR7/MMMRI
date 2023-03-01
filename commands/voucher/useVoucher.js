@@ -14,7 +14,7 @@ module.exports = {
         const { options, guildId, user } = interaction;
         const target = options.getUser('user');
         console.log(target)
-        const okayEmotes = [":thumbs_up:"]
+        const okayEmotes = [":thumbsup:"]
         const userTag = `${target.username}#${target.discriminator}`
         vouchersModel.findOne({ UserId: target.id}, async (err, data) => {
             if(!data) {
