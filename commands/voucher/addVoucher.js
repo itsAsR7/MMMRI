@@ -58,7 +58,6 @@ module.exports = {
                 }
                 const user = data.UserID;
                 const username = data.Username;
-                console.log("i'm trying")
                 const newVoucher = {
                     GivenBy: givenByUser
                 }
