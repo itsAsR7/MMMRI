@@ -13,7 +13,7 @@ module.exports = {
         if(!interaction.member.permissions.has(PermissionsBitField.Flags.KickMembers)) return await interaction.reply({ content: "You don't have the privileges to give a voucher peasant"})
         
         const { options, guildId, user } = interaction;
-        const scaredEmotes = [ ':scream_cat:', ':julian3:', '\:ummm:', '\:bandmanalm:', '\:awokege:', '\:fucksoru:', '\:NOWAY:' ]
+        const scaredEmotes = [ ':scream_cat:', '<:julian3:1016903362991624253>', '<:bandmanalm:1024090396487336006>', '<a:awokege:1028002524692742164>', '<:fucksoru:925570701094715414>', '<:NOWAY:1029438507623661648>' ]
         
         const target = options.getUser('user');
         const targetId = target.id
