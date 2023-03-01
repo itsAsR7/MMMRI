@@ -10,16 +10,13 @@ module.exports = {
     .addUserOption(option => option.setName('user').setDescription('Select a member to give a voucher to mute anyone (literally).').setRequired(true)),
     async execute(interaction, client) {
 
-        console.log(interaction.options.user)
+        if(!interaction.member.permissions.has(PermissionsBitField.Flags.KickMembers)) return await interaction.reply({ content: "You don't have the privileges to give a voucher peasant"})
         
         const { options, guildId, user } = interaction;
         const scaredEmotes = [ ':scream_cat:', ':julian3:', ':ummm:', ':bandmanalm:', ':awokege:', ':fucksoru:', ':NOWAY:' ]
         
         const target = options.getUser('user');
-        console.log(target)
-        console.log(user)
         const targetId = target.id
-        console.log(targetId)
         const givenByUser = `${user.username}#${user.discriminator}`
         const userTag = `${target.username}#${target.discriminator}`
         
@@ -60,7 +57,5 @@ module.exports = {
                 }
                 return interaction.reply({ embeds: [embed2] });
             })
-            
-            
     }
 }
