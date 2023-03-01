@@ -22,6 +22,7 @@ module.exports = {
             } else {       
                 
                 data.Vouchers.shift()
+                data.save()
                 const embed = new EmbedBuilder()
                     .setColor("Red")
                     .setDescription(`${userTag} used a voucher \n \n ${userTag} has ${data.Vouchers.length} remaining vouchers ${okayEmotes[Math.floor(Math.random()*okayEmotes.length)]}`)

@@ -39,7 +39,7 @@ module.exports = {
                 })
                 const embed1 = new EmbedBuilder()
                 .setColor("Blue")
-                .setDescription(`Voucher added for ${userTag} \n Congrats on your first voucher`)
+                .setDescription(`Voucher added for ${userTag} \n \n Congrats on your first voucher`)
                 return interaction.reply({ embeds: [embed1] });
 
             } else {
