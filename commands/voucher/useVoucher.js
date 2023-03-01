@@ -18,7 +18,7 @@ module.exports = {
         const userTag = `${target.username}#${target.discriminator}`
         vouchersModel.findOne({ UserId: target.id}, async (err, data) => {
             if(!data) {
-                return interaction.reply({content: `Lol ${userTag}'s corny ass has no vouchers `})
+                return interaction.reply({content: `You have no vouchers lil bro`})
             } else {       
                 
                 data.Vouchers.shift()
