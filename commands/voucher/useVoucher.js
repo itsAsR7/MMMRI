@@ -21,7 +21,7 @@ module.exports = {
                 data.Vouchers.shift()
                 const embed = new EmbedBuilder()
                     .setColor("Red")
-                    .setDescription(`${userTag} used a voucher \n ${userTag} has ${data.Vouchers.length} remaining vouchers ${okayEmotes[Math.floor(Math.random()*okayEmotes.length)]}`)
+                    .setDescription(`${userTag} used a voucher \n \n ${userTag} has ${data.Vouchers.length} remaining vouchers ${okayEmotes[Math.floor(Math.random()*okayEmotes.length)]}`)
                 return interaction.reply({ embeds: [embed] })
             }
         });
