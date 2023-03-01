@@ -22,10 +22,17 @@ module.exports = {
         
         vouchersModel.findOne({ UserId: targetId }, async (err, data) => {
             if (err) throw err
+            
 
             console.log(targetId)
             if (!data) {
                 console.log(targetId)
+                if(userTag == 'MMMRI BOT#1789') {
+                    const embedself = new EmbedBuilder()
+                    .setColor("Blue")
+                    .setDescription(`Voucher added for ${userTag} \n \n Congrats on your first voucher MM...wait that's me. Lol thanks...`)
+                    return interaction.reply({ embeds: [embedself] });
+                }
                 data = vouchersModel.create({
                     
                     GuildId: guildId,
@@ -43,6 +50,12 @@ module.exports = {
                 return interaction.reply({ embeds: [embed1] });
 
             } else {
+                if(userTag == 'MMMRI BOT#1789') {
+                    const embedself = new EmbedBuilder()
+                    .setColor("Blue")
+                    .setDescription(`Voucher added for ${userTag} \n \n I don't need these, I have like ${data.Vouchers.length} now`)
+                    return interaction.reply({ embeds: [embedself] });
+                }
                 const user = data.UserID;
                 const username = data.Username;
                 console.log("i'm trying")
