@@ -11,7 +11,7 @@ module.exports = {
         const { options, guildId, user } = interaction;
         const target = options.getUser('user');
         console.log(target)
-        const scaredEmotes = [ '\:scream_cat:', '<:julian3:1080347785745932360>', '\:bandmanalm:', '\:awokege:', '<:fucksoru:1080348019523850282>', '\:NOWAY:' ]
+        const scaredEmotes = [ '\:scream_cat:', '<:1080347785745932360:>', '\:bandmanalm:', '\:awokege:', '<:fucksoru:1080348019523850282>', '\:NOWAY:' ]
         const userTag = `${target.username}#${target.discriminator}`
         vouchersModel.findOne({ UserId: target.id}, async (err, data) => {
             if(!data) {
