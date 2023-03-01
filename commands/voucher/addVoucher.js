@@ -54,8 +54,9 @@ module.exports = {
                 const embed2 = new EmbedBuilder()
                 .setColor("Blue")
                 .setDescription(`Voucher added for ${userTag} \n User now has ${data.Vouchers.length} vouchers ${scaredEmotes[Math.floor(Math.random()*scaredEmotes.length)]}`)
-                }
                 return interaction.reply({ embeds: [embed2] });
-            })
+        
+            }           
+        })
     }
 }
