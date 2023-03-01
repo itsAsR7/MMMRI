@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder } = require('discord.js')
+const { PermissionsBitField, EmbedBuilder } = require('discord.js')
 const  vouchersModel = require('../../schemas/test');
 
 module.exports = {
@@ -8,6 +8,9 @@ module.exports = {
     .setDescription('Use a voucher')
     .addUserOption(option => option.setName('user').setDescription('Select a member to use a voucher').setRequired(true)),
     async execute(interaction, client) {
+
+        if(!interaction.member.permissions.has(PermissionsBitField.Flags.KickMembers)) return await interaction.reply({ content: "You don't have the privileges to use a voucher peasant"})
+        
         const { options, guildId, user } = interaction;
         const target = options.getUser('user');
         console.log(target)
