@@ -5,7 +5,7 @@ const  vouchersModel = require('../../schemas/test');
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('vouchers')
-    .setDescription('Van is a fag')
+    .setDescription('Check vouchers for this user')
     .addUserOption(option => option.setName('user').setDescription('Hey').setRequired(true)),
     async execute(interaction, client) {
         const { options, guildId, user } = interaction;
