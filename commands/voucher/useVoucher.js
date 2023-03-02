@@ -29,7 +29,7 @@ module.exports = {
                     .setDescription(`${usedBy} used a voucher on ${useOn} \n${useOn} has been timed out for 5 minutes \n${usedBy} has ${data.Vouchers.length} remaining vouchers ${okayEmotes[Math.floor(Math.random()*okayEmotes.length)]}`)
 
                 if (data.Vouchers.length===0) {
-                    await deleteOne({ UserId: interaction.member.id })
+                    vouchersModel.deleteOne({ UserId: interaction.member.id })
                 }
                 data.save()
                 return interaction.reply({ embeds: [embed] })
