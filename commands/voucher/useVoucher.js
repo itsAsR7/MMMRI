@@ -23,6 +23,7 @@ module.exports = {
             } 
             else {       
                 data.Vouchers.shift()
+                data.save()
                 member.timeout(300_000)
                 const embed = new EmbedBuilder()
                     .setColor("Red")
@@ -30,8 +31,8 @@ module.exports = {
 
                 if (data.Vouchers.length===0) {
                     vouchersModel.deleteOne({ UserId: interaction.member.id })
+                    console.log(`Deleting ${interaction.member.id}`)
                 }
-                data.save()
                 return interaction.reply({ embeds: [embed] })
             }
         });
