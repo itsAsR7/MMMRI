@@ -13,6 +13,8 @@ module.exports = {
         const scaredEmotes = [ ':scream_cat:', '<:julian3:1016903362991624253>', '<:bandmanalm:1024090396487336006>', '<a:awokege:1028002524692742164>', '<:fucksoru:925570701094715414>', '<:NOWAY:1029438507623661648>' ]
         const userTag = `${target.username}#${target.discriminator}`
         vouchersModel.findOne({ UserId: target.id}, async (err, data) => {
+            if (err) throw err
+            
             if(!data) {
                 return interaction.reply({content: `Lol ${userTag}'s corny ass has no vouchers `})
             } else {              
