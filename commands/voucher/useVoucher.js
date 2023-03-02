@@ -12,7 +12,6 @@ module.exports = {
         
         const { options, guildId, user } = interaction;
         const target = options.getUser('user');
-        console.log(interaction.member)
         const okayEmotes = [":thumbsup:"]
         const member =  interaction.options.getMember('user')
         const usedBy = `${interaction.member.user.username}#${interaction.member.user.discriminator}`
@@ -33,7 +32,6 @@ module.exports = {
                         if (err) throw err
                         console.log(data)
                     })
-                    console.log(`Deleting ${interaction.member.id}`)
                 }
                 return interaction.reply({ embeds: [embed] })
             }
