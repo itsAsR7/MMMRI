@@ -5,12 +5,11 @@ const  vouchersModel = require('../../schemas/test');
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('addvoucher')
-    .setDescription('Van is a fag')
-    
-    .addUserOption(option => option.setName('user').setDescription('Select a member to give a voucher to mute anyone (literally).').setRequired(true)),
+    .setDescription('Give a 5 minute timeout voucher to a member')
+    .addUserOption(option => option.setName('user').setDescription('Select a member to give a voucher to').setRequired(true)),
     async execute(interaction, client) {
 
-        if(!interaction.member.permissions.has(PermissionsBitField.Flags.KickMembers)) return await interaction.reply({ content: "You don't have the privileges to give a voucher peasant"})
+        if(!interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers)) return await interaction.reply({ content: "You don't have the privileges to give a voucher peasant"})
         
         const { options, guildId, user } = interaction;
         const scaredEmotes = [ ':scream_cat:', '<:julian3:1016903362991624253>', '<:bandmanalm:1024090396487336006>', '<a:awokege:1028002524692742164>', '<:fucksoru:925570701094715414>', '<:NOWAY:1029438507623661648>' ]
@@ -24,13 +23,11 @@ module.exports = {
             if (err) throw err
             
 
-            console.log(targetId)
             if (!data) {
-                console.log(targetId)
                 if(userTag == 'MMMRI BOT#1789') {
                     const embedself = new EmbedBuilder()
                     .setColor("Blue")
-                    .setDescription(`Voucher added for ${userTag} \n \n Congrats on your first voucher MM...wait that's me. Lol thanks...`)
+                    .setDescription(`Voucher added for ${userTag} \n \nCongrats on your first voucher M...wait that's me, Lol thanks...`)
                     return interaction.reply({ embeds: [embedself] });
                 }
                 data = vouchersModel.create({
@@ -46,14 +43,14 @@ module.exports = {
                 })
                 const embed1 = new EmbedBuilder()
                 .setColor("Blue")
-                .setDescription(`Voucher added for ${userTag} \n \n Congrats on your first voucher`)
+                .setDescription(`Voucher added for ${userTag} \n \nCongrats on your first voucher bud :thumbsup:`)
                 return interaction.reply({ embeds: [embed1] });
 
             } else {
                 if(userTag == 'MMMRI BOT#1789') {
                     const embedself = new EmbedBuilder()
                     .setColor("Blue")
-                    .setDescription(`Voucher added for ${userTag} \n \n I don't need these, I have like ${data.Vouchers.length} now`)
+                    .setDescription(`Voucher added for ${userTag} \n \nI don't need these, I have like ${data.Vouchers.length} now`)
                     return interaction.reply({ embeds: [embedself] });
                 }
                 const user = data.UserID;
@@ -65,7 +62,7 @@ module.exports = {
                 data.save()
                 const embed2 = new EmbedBuilder()
                 .setColor("Blue")
-                .setDescription(`Voucher added for ${userTag} \n User now has ${data.Vouchers.length} vouchers ${scaredEmotes[Math.floor(Math.random()*scaredEmotes.length)]}`)
+                .setDescription(`Voucher added for ${userTag} \nUser now has ${data.Vouchers.length} vouchers ${scaredEmotes[Math.floor(Math.random()*scaredEmotes.length)]}`)
                 return interaction.reply({ embeds: [embed2] });
         
             }           

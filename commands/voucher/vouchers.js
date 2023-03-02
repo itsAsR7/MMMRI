@@ -5,12 +5,11 @@ const  vouchersModel = require('../../schemas/test');
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('vouchers')
-    .setDescription('Check vouchers for this user')
-    .addUserOption(option => option.setName('user').setDescription('Hey').setRequired(true)),
+    .setDescription('Check vouchers for a user')
+    .addUserOption(option => option.setName('user').setDescription('Check how many vouchers this user has').setRequired(true)),
     async execute(interaction, client) {
         const { options, guildId, user } = interaction;
         const target = options.getUser('user');
-        console.log(target)
         const scaredEmotes = [ ':scream_cat:', '<:julian3:1016903362991624253>', '<:bandmanalm:1024090396487336006>', '<a:awokege:1028002524692742164>', '<:fucksoru:925570701094715414>', '<:NOWAY:1029438507623661648>' ]
         const userTag = `${target.username}#${target.discriminator}`
         vouchersModel.findOne({ UserId: target.id}, async (err, data) => {
