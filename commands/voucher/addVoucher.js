@@ -22,13 +22,24 @@ module.exports = {
         vouchersModel.findOne({ UserId: targetId }, async (err, data) => {
             if (err) throw err
             
-
             if (!data) {
                 if(userTag == 'MMMRI BOT#1789') {
+                    data = vouchersModel.create({
+                    
+                        GuildId: guildId,
+                        UserId: targetId,
+                        Username: userTag,
+                        Vouchers: [
+                            {
+                                GivenBy: givenByUser
+                            }
+                        ]
+                    })
                     const embedself = new EmbedBuilder()
                     .setColor("Blue")
                     .setDescription(`Voucher added for ${userTag} \n \nCongrats on your first voucher M...wait that's me, Lol thanks...`)
                     return interaction.reply({ embeds: [embedself] });
+                    
                 }
                 data = vouchersModel.create({
                     
@@ -48,6 +59,11 @@ module.exports = {
 
             } else {
                 if(userTag == 'MMMRI BOT#1789') {
+                    const newVoucher = {
+                        GivenBy: givenByUser
+                    }
+                    data.Vouchers.push(newVoucher);
+                    data.save()
                     const embedself = new EmbedBuilder()
                     .setColor("Blue")
                     .setDescription(`Voucher added for ${userTag} \n \nI don't need these, I have like ${data.Vouchers.length} now`)
@@ -64,7 +80,6 @@ module.exports = {
                 .setColor("Blue")
                 .setDescription(`Voucher added for ${userTag} \nUser now has ${data.Vouchers.length} vouchers ${scaredEmotes[Math.floor(Math.random()*scaredEmotes.length)]}`)
                 return interaction.reply({ embeds: [embed2] });
-        
             }           
         })
     }
