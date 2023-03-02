@@ -14,8 +14,8 @@ module.exports = {
         console.log(interaction.member)
         const okayEmotes = [":thumbsup:"]
         const member =  interaction.options.getMember('user')
-        const usedBy = `${interaction.member.username}#${interaction.member.discriminator}`
-        const userTag = `${target.username}#${target.discriminator}`
+        const usedBy = `${interaction.member.user.username}#${interaction.member.user.discriminator}`
+        const useOn= `${target.username}#${target.discriminator}`
         vouchersModel.findOne({ UserId: interaction.member.id}, async (err, data) => {
             if(!data) {
                 return interaction.reply({content: `You have no vouchers lil bro`})
@@ -25,7 +25,7 @@ module.exports = {
                 member.timeout(300_000)
                 const embed = new EmbedBuilder()
                     .setColor("Red")
-                    .setDescription(`${usedBy} used a voucher on ${userTag} \n${userTag} has been timed out for 5 minutes \n${userTag} has ${data.Vouchers.length} remaining vouchers ${okayEmotes[Math.floor(Math.random()*okayEmotes.length)]}`)
+                    .setDescription(`${usedBy} used a voucher on ${useOn} \n${useOn} has been timed out for 5 minutes \n${usedBy} has ${data.Vouchers.length} remaining vouchers ${okayEmotes[Math.floor(Math.random()*okayEmotes.length)]}`)
                 return interaction.reply({ embeds: [embed] })
             }
         });
