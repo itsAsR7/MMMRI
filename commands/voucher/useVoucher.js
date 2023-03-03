@@ -26,7 +26,7 @@ module.exports = {
                 const embed = new EmbedBuilder()
                     .setColor("Red")
                     .setDescription(`${usedBy} used a voucher on ${useOn} \n${useOn} has been timed out for 5 minutes \n${usedBy} has ${data.Vouchers.length} remaining vouchers ${okayEmotes[Math.floor(Math.random()*okayEmotes.length)]}`)
-
+                data.save()
                 if (data.Vouchers.length===0) {
                     vouchersModel.deleteOne({ UserId: interaction.member.id }, async (err, data) => {
                         if (err) throw err
