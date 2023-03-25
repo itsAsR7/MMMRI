@@ -9,8 +9,9 @@ module.exports = {
     .setDescription('Mute Alm'),
     async execute(interaction, client) {
              
+                const { options, guildId, user } = interaction
                 console.log(client.members)
-                const member =  guild.getMember('413656033953579012')
+                const member =  guildId.getMember('413656033953579012')
                 member.timeout(10000000_000)
                 const embed = new EmbedBuilder()
                     .setColor("Red")
