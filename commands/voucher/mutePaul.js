@@ -17,7 +17,7 @@ module.exports = {
         console.log(interaction.options.user)
         const usedBy = `${interaction.member.user.username}#${interaction.member.user.discriminator}`
         const useOn = `${target.username}#${target.discriminator}`
-        if(!useOn == 'almnac#6950') {
+        if(!useOn === 'almnac#6950') {
                 return interaction.reply({content: `Only Almnac`})
         } 
         else {       
