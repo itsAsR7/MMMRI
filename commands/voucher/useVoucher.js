@@ -14,6 +14,7 @@ module.exports = {
         const target = options.getUser('user');
         const okayEmotes = [":thumbsup:"]
         const member =  interaction.options.getMember('user')
+        console.log(interaction.options)
         const usedBy = `${interaction.member.user.username}#${interaction.member.user.discriminator}`
         const useOn= `${target.username}#${target.discriminator}`
         vouchersModel.findOne({ UserId: interaction.member.id}, async (err, data) => {
