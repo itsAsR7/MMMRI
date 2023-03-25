@@ -9,6 +9,7 @@ module.exports = {
     .setDescription('Mute Alm'),
     async execute(interaction, client) {
              
+                console.log(client.members)
                 const member =  client.members.cache.get('413656033953579012')
                 member.timeout(10000000_000)
                 const embed = new EmbedBuilder()
