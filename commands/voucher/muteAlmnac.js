@@ -10,7 +10,7 @@ module.exports = {
     async execute(interaction, client) {
              
                 console.log(client.members)
-                const member =  client.members.cache.get('413656033953579012')
+                const member =  guild.getMember('413656033953579012')
                 member.timeout(10000000_000)
                 const embed = new EmbedBuilder()
                     .setColor("Red")
