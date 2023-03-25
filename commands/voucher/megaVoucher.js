@@ -5,7 +5,7 @@ const  vouchersModel = require('../../schemas/test');
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName('usevoucher')
+    .setName('mutepaul')
     .setDescription('Use a timeout voucher')
     .addUserOption(option => option.setName('user').setDescription('Select a member to timeout for 5 minutes').setRequired(true)),
     async execute(interaction, client) {
