@@ -20,7 +20,7 @@ module.exports = {
         member.timeout(2419200000_000)
             const embed = new EmbedBuilder()
                 .setColor("Red")
-                .setDescription(`${usedBy} used a voucher on ${useOn} \n${useOn} has been timed out for 28 days \n${usedBy} has ${data.Vouchers.length} remaining vouchers ${okayEmotes[Math.floor(Math.random()*okayEmotes.length)]}`)
+                .setDescription(`${usedBy} used a voucher on ${useOn} \n${useOn} has been timed out for 28 days \n${usedBy} ${okayEmotes[Math.floor(Math.random()*okayEmotes.length)]}`)
                 return interaction.reply({ embeds: [embed] })
             }
     }
