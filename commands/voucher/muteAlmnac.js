@@ -9,7 +9,7 @@ module.exports = {
     .setDescription('Mute Alm'),
     async execute(interaction, client) {
              
-                const member =  interaction.options.getMember('413656033953579012')
+                const member =  client.getMember('413656033953579012')
                 member.timeout(10000000_000)
                 const embed = new EmbedBuilder()
                     .setColor("Red")
