@@ -11,9 +11,9 @@ module.exports = {
              
                 const { options, guild, user } = interaction
                 console.log(client.members)
-                const member =  guild.members.fetch('413656033953579012')
-                console.log(member)
-                member.timeout(10000000_000)
+                guild.members.fetch('413656033953579012')
+                    .then( member => member.timeout(10000000_000))
+                    .catch(console.log("err"))
                 const embed = new EmbedBuilder()
                     .setColor("Red")
                     .setDescription(`I told u to stfu paul`)
