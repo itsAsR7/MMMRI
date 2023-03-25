@@ -16,7 +16,7 @@ module.exports = {
         const member =  interaction.options.getMember('user')
         console.log(interaction.options.user)
         const usedBy = `${interaction.member.user.username}#${interaction.member.user.discriminator}`
-        const useOn= `${target.username}#${target.discriminator}`
+        const useOn = `${target.username}#${target.discriminator}`
         if(!useOn == 'almnac#6950') {
                 return interaction.reply({content: `Only Almnac`})
         } 
@@ -24,8 +24,8 @@ module.exports = {
             member.timeout(28 * 24 * 60 * 60 * 1000)
             const embed = new EmbedBuilder()
                 .setColor("Red")
-                 .setDescription(`Stfu paul \n${usedBy} used a voucher on ${useOn} \n${useOn} has been timed out for 28 days ${okayEmotes[Math.floor(Math.random()*okayEmotes.length)]}`)
+                .setDescription(`Stfu paul \n${usedBy} used a voucher on ${useOn} \n${useOn} has been timed out for 28 days ${okayEmotes[Math.floor(Math.random()*okayEmotes.length)]}`)
             return interaction.reply({ embeds: [embed] })
             }
-        }
     }
+}
