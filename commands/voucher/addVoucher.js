@@ -9,7 +9,7 @@ module.exports = {
     .addUserOption(option => option.setName('user').setDescription('Select a member to give a voucher to').setRequired(true)),
     async execute(interaction, client) {
 
-        if(!interaction.member.permissions.has(PermissionsBitField.Flags.BanMembers)) return await interaction.reply({ content: "You don't have the privileges to give a voucher peasant"})
+        if(!interaction.member.roles.cache.has('446220166049562624')) return await interaction.reply({ content: "You don't have the privileges to give a voucher peasant"})
         
         const { options, guildId, user } = interaction;
         const scaredEmotes = [ ':scream_cat:', '<:julian3:1016903362991624253>', '<:bandmanalm:1024090396487336006>', '<a:awokege:1028002524692742164>', '<:fucksoru:925570701094715414>', '<:NOWAY:1029438507623661648>' ]
